@@ -31,7 +31,7 @@ async def lifespan(app: FastAPI):
         logger.info(f"Loaded {catalog.size()} assessments")
 
         retrieval = Retrieval(catalog)
-        index_path = os.getenv("INDEX_PATH", "vector_store/faiss_index.pkl")
+        index_path = os.getenv("INDEX_PATH", "vector_store/tfidf_index.pkl")
         if Path(index_path).exists():
             logger.info(f"Loading vector index from {index_path}")
             retrieval.load_index()
