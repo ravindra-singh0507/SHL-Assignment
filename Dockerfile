@@ -16,6 +16,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Pre-download sentence-transformers model during build
 RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('all-MiniLM-L6-v2')"
 
+# Force offline mode at runtime - use cached model, no network calls
+ENV HF_HUB_OFFLINE=1
+ENV TRANSFORMERS_OFFLINE=1
+
 # Copy application code
 COPY . .
 
