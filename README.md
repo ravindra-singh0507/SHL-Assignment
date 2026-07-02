@@ -243,34 +243,6 @@ print('Recommendations:', len(recs) if recs else 0)
 "
 ```
 
-## Deployment on Render
-
-### 1. Create a Render account
-
-Visit https://render.com and create an account.
-
-### 2. Connect GitHub repository
-
-Connect your GitHub repository to Render.
-
-### 3. Create a Web Service
-
-- **Name**: shl-ai-hiring-assistant
-- **Environment**: Python
-- **Build command**: `pip install -r requirements.txt`
-- **Start command**: `uvicorn app.main:app --host 0.0.0.0 --port 8000`
-
-### 4. Set environment variables
-
-In the Render dashboard:
-- `GEMINI_API_KEY`: Your Google Gemini API key
-- `CATALOG_PATH`: `data/shl_product_catalog.json`
-- `INDEX_PATH`: `vector_store/faiss_index.pkl`
-
-### 5. Deploy
-
-Push to the connected branch, and Render will automatically deploy.
-
 ## Conversation Behaviors
 
 ### Clarification
@@ -350,7 +322,3 @@ For issues or questions:
 1. Check the sample conversations in `data/sample_conversations/`
 2. Review API documentation at `/docs`
 3. Check logs for error details
-
-## License
-
-SHL AI Hiring Assistant - AI Interview Take-home Assignment
