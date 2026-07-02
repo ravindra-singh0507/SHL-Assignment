@@ -2,7 +2,7 @@ services:
   - type: web
     name: shl-ai-hiring-assistant
     env: python
-    buildCommand: "pip install -r requirements.txt"
+    buildCommand: "chmod +x build.sh && ./build.sh"
     startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
     plan: free
     regions:
@@ -14,3 +14,5 @@ services:
         value: gemini-2.5-flash-lite
       - key: PYTHON_VERSION
         value: "3.11.0"
+      - key: SENTENCE_TRANSFORMERS_HOME
+        value: /opt/render/project/src/.cache/sentence_transformers
